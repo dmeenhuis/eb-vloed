@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/dm-sans';
+
+:root {
+  --bg: #fbf7f5;
+  --card: #ffffff;
+  --sunken: #f4eeeb;
+  --ink: #2a1f24;
+  --muted: #8a7a80;
+  --line: #ece3df;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151217;
+    --card: #211c23;
+    --sunken: #2b252e;
+    --ink: #f4eef1;
+    --muted: #a094a0;
+    --line: #342d37;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --font-sans: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  /* Keep focused fields clear of the fixed bottom navigation. */
+  scroll-padding-bottom: 7rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.92);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-pop {
+  animation: pop 0.22s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.animate-slide-up {
+  animation: slide-up 0.25s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
